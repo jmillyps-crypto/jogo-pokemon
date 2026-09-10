@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+    color: red;
+    font-size: 50px;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.cenario{
+    width: 80%;
+    height: 430px;
+    border: 2px solid black;
+    margin: 0 auto;
+    background-image: url(../img/cenario.png);
+    background-position-y: -270px;
+    position: relative;
+
+    overflow: hidden;
+
+}
+.textos{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    
+}
+.vidas{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-right: 40px;
+    
+}
+span{
+    color: red;
+    font-size: 20px;
+    font-style: italic;
+}
+#jogador{
+    width: 153px;
+    height: 102px;
+    position: absolute;
+    bottom: 70px;
+    left: 150px;
+
+    background-image: url(../img/jogador.png);
+    background-size: 400% 400%;
+
+    background-position-x: 0px;
+    background-position-y: -64px;
+   
+    animation: moveJogador 0.4s infinite;
+    animation-timing-function: step-end;
+    animation-delay: 0s;
+   
+}
+#vilao{
+    width: 153px;
+    height: 70px;
+    position: absolute;
+    bottom: 70px;
+    right: -153px;
+
+    background-image: url(../img/vilao.png);
+    background-size: 400% 400%;
+
+    background-position-y: -54px;
+    background-position-x: -8px;
+
+    animation: moveVilao 0.4s infinite;
+    animation-timing-function: step-end;
+    animation-delay: 0s;
+
+}
+@keyframes moveVilao {
+    0%{
+        background-position-x: -8px;
+    }
+    25%{
+        background-position-x: -159px;
+    }
+    50%{
+        
+        background-position-x: -305px;
+    }
+    100%{
+        
+        background-position-x: -453px;
+    }
+
+}
+
+@keyframes moveJogador {
+    0%{
+        background-position-x: 0px;
+    }
+    25%{
+        background-position-x: -151px;
+    }
+    50%{
+        
+        background-position-x: -305px;
+    }
+    100%{
+        
+        background-position-x: -453px;
+    }
+}
