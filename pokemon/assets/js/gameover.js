@@ -1,2 +1,2 @@
    var recorde = localStorage.getItem("record")
-            document.querySelector("#record").innerHTML = recorde
+         document.querySelector("#record").innerHTML = recorde

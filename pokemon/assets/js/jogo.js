@@ -5,6 +5,8 @@ var valorCenario = 0
 var posVilao = -153
 var posPersonagem = 70
 var pulando = false
+var numPulo = 0
+var recorde = localStorage.getItem("record")
 
 var cenario = document.querySelector('.cenario')
 var jogadr = document.querySelector('#jogador')
@@ -36,11 +38,13 @@ function mudarcenario() {
     }
 }
 
+
 function moverVilao(){
-    posVilao = posVilao + velocidade * 2
+    posVilao = posVilao + velocidade * 4
     vilao.style.right = posVilao + 'px'
 
     var larguraJogo = cenario.offsetWidth
+    
 
     if(posVilao > larguraJogo){
         posVilao = -153
@@ -48,10 +52,10 @@ function moverVilao(){
 
         document.querySelector('#valor_pontos').innerHTML = pontos
 
-        if(pontos % 50 === 0){
+        if(pontos % 10 === 0 && velocidade <= 4){
             velocidade += 1
 
-        }
+        } 
     }
 }
 function trocarVilao(){
@@ -83,10 +87,11 @@ function trocarJogador(){
 var contador = 0
 
 function pular(){
+    var velocidadePulo = 6
     if(pulando === true){
 
-        if(posPersonagem < 320){
-            posPersonagem += 5
+        if(posPersonagem < 300){
+            posPersonagem += velocidadePulo + 2
         }
         else{
             if(contador >= 12){
@@ -100,15 +105,19 @@ function pular(){
     }
     else{
         if(posPersonagem > 70){
-            posPersonagem -= velocidade + 2
+            posPersonagem -= velocidadePulo + 2
         }
+           
         else{
             posPersonagem = 70
+            numPulo = 0
         }
-
+        
     }
-    jogador.style.bottom = posPersonagem + 'px' 
+     jogador.style.bottom = posPersonagem + 'px'
 }
+    
+
          
 
 function colisao(){
@@ -124,15 +133,10 @@ function colisao(){
 
             posVilao = -153
             pulando = false
-            posPersonagem= 70
-
-
-                
+            posPersonagem= 70  
  
     }
  
-        
-   
     
 }
 function perderVidas(){
@@ -146,10 +150,13 @@ function perderVidas(){
         }
         if(vida == 0){
             img1.style.display = 'none';
-            localStorage.setItem('record', pontos)
+
+            if(pontos > Number(recorde)){
+                localStorage.setItem('record', pontos)
+            }
+            
             window.location.href = "gameover.html"
         }
-        document.querySelector('#valor_vidas').innerHTML = vida
 
 }
 
@@ -165,8 +172,14 @@ setInterval (function(){
 
 document.addEventListener('keypress', function(event){
 
-        if(event.code === 'Space' && posPersonagem === 70){
-            pulando = true
+        if(event.code === 'Space'){
+            if (posPersonagem <= 70) {
+                numPulo = numPulo + 1
+                pulando = true
+            } else if (pontos >= 0 && numPulo <= 2) {
+                numPulo = numPulo + 1
+                pulando = true
+            }
         }
 
         document.querySelector("#meuSom").play()
