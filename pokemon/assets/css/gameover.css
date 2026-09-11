@@ -1,0 +1,72 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    text-align: center;
+    background-image: url(../img/cenario-inicial.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+}
+
+h1{
+    color: yellow;
+    text-shadow: 4px 5px blue;
+    font-size: 50px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 120px;
+    
+}
+h2{
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px;
+    font-size: 30px;
+}
+h5{
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    margin-top: 100px;
+    color: white;
+    font-weight: 40px;
+    font-size: 20px;
+    
+}
+.botoes{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#botaoSim{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: yellow;
+    font-weight: bold;
+    /* text-shadow: 1px 1px 2px blue; */
+    background-color: blue;
+}
+#botaoNao{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: yellow;
+    font-weight: bold;
+    /* text-shadow: 1px 1px 2px blue; */
+    background-color: blue;
+}
